@@ -17,23 +17,11 @@ class phoneBook{
     }
 
     phoneBook(){
-
     }
-    // void saveContact(string fN, string lN, string numr){
-    //     cout<<"Enter First Name: ";
-    //     cin>>fN;
-    //     cout<<"\n";
-    //     cout<<"Enter Last Name: ";
-    //     cout<<"\n";
-    //     cin>>lN;
-    //     cout<<"Enter Contact Number: "; 
-    //     cin>>numr;
-    //     cout<<"\n";
-    //     phoneBook(fN, lN, numr);
-    // }
-    // void printnumr(string num){
-    //     cout<<
-    // }
+
+    
+
+
     void printInfo(){
         cout<<"Name: ";
         cout << firstName + " " + lastName << endl;
@@ -42,8 +30,12 @@ class phoneBook{
     };
 };
 
-phoneBook arr[1000];
-int i=0;
+
+phoneBook arr[1000];//global var
+int i=0;//global var
+
+
+//case 1
 void save(){
     cout<<"Enter First Name: ";
     cin>>arr[i].firstName;
@@ -57,14 +49,40 @@ void save(){
     i++;
 }
 
+
+//case 2
 void printarr(int j){
     arr[j].printInfo();
 }
 
+
+//case 3
+int linearSearchFname(string key){
+
+    //count elements in array ----->
+    int count=0;
+    while(arr[count].firstName != ""){
+        count++;
+    }
+
+
+    //Linear Search ---->
+    for (int k = 0; k < count; k++)
+    {
+        if (arr[k].firstName == key)
+        {
+            return k;
+        }
+        
+    }
+    return -1;
+}
+
+
 int main(){
     int c;
     while(c!=6){
-        cout<<"What do you want to do?\n1. Save a contact.\n2. Print using key.\n6. Exit"<<endl;
+        cout<<"What do you want to do?\n1. Save a contact.\n2. Print using key.\n3. Search Using First Name.\n6. Exit"<<endl;
         cout<<"Choice: ";
         cin>> c;
         switch (c)
@@ -84,6 +102,18 @@ int main(){
             cout<<"------------"<<endl;
             cout<<"\n";
             break;
+        case 3:{
+            string key;
+            cout<<"Enter First Name: ";
+            cin>>key;
+            cout<<"\n";
+            int k = linearSearchFname(key);
+            printarr(k);
+            cout<<"\n";
+            cout<<"------------"<<endl;
+            cout<<"\n";
+            break;
+        }
         case 6:
             break;
         }
