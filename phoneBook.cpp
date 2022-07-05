@@ -47,13 +47,13 @@ int i=0;
 void save(){
     cout<<"Enter First Name: ";
     cin>>arr[i].firstName;
-    cout<<"\n";
+    //cout<<"\n";
     cout<<"Enter Last Name: ";
     cin>>arr[i].lastName;
-    cout<<"\n";
+    //cout<<"\n";
     cout<<"Enter Contact Number: "; 
     cin>>arr[i].number;
-    cout<<"\n";
+    //cout<<"\n";
     i++;
 }
 
@@ -72,12 +72,16 @@ int main(){
         case 1:
             save();
             cout<<"\n";
+            cout<<"------------"<<endl;
+            cout<<"\n";
             break;
         case 2:
             int j;
             cout<<"Enter the key: ";
             cin>>j;
             printarr(j);
+            cout<<"\n";
+            cout<<"------------"<<endl;
             cout<<"\n";
             break;
         case 6:
