@@ -67,7 +67,7 @@ int linearSearchFname(string key){
 
 
     //Linear Search ---->
-    for (int k = 0; k < count; k++)
+    for (int k = 0; k < count-1; k++)
     {
         if (arr[k].firstName == key)
         {
@@ -79,10 +79,59 @@ int linearSearchFname(string key){
 }
 
 
+//case 4
+void bubbleSortfname(){
+
+//count elements in array ----->
+    int count=0;
+    while(arr[count].firstName != ""){
+        count++;
+    }
+    int n = count-1;//passing the count value into the bubble sort part through n
+
+
+//sorting --------->
+    int counter=1;
+    while (counter<n)
+    {
+        for (int i = 0; i < n-counter; i++)
+        {
+            if (arr[i].firstName>arr[i+1].firstName)
+            {
+                phoneBook temp;
+                temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1]=temp;
+            }
+            }
+        counter++;
+        }
+    
+}
+
+
+//case 5
+void printAllContacts(){
+    //count elements in array ----->
+    int count=0;
+    while(arr[count].firstName != ""){
+        count++;
+    }
+    int n = count-1;//passing the count value into the bubble sort part through n
+
+    for (int x = 0; x <= n; x++)
+    {
+        printarr(x);
+    }
+}
+
+
+
+
 int main(){
     int c;
     while(c!=6){
-        cout<<"What do you want to do?\n1. Save a contact.\n2. Print using key.\n3. Search Using First Name.\n6. Exit"<<endl;
+        cout<<"What do you want to do?\n1. Save a contact.\n2. Print using key.\n3. Search Using First Name.\n4. Sort the contacts\n5. Print all contacts\n6. Exit"<<endl;
         cout<<"Choice: ";
         cin>> c;
         switch (c)
@@ -114,6 +163,19 @@ int main(){
             cout<<"\n";
             break;
         }
+        case 4:
+            bubbleSortfname();
+            cout<<"Sorting completed, use option 5 to view all contacts."<<endl;
+            cout<<"\n";
+            cout<<"------------"<<endl;
+            cout<<"\n";
+            break;
+        case 5:
+            cout<<"The List of all Contacts: "<<endl;
+            printAllContacts();
+            cout<<"\n";
+            cout<<"------------"<<endl;
+            cout<<"\n";
         case 6:
             break;
         }
